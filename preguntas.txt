@@ -1,0 +1,8 @@
+1.- Seleccione todos los empelados que no tengan jefe
+R.  select * from employees where reportsTo is NULL;
+
+2.- Seleccione todos los empelados que son jefes
+R.  select * from employees where employeeNumber in (select distinct reportsTo from employees where reportsTo is not NULL);
+
+3.- Seleccione todos los empelados que NO son jefes
+R.  select * from employees where employeeNumber not in (select distinct reportsTo from employees where reportsTo is not NULL);
