@@ -6,3 +6,23 @@ R.  select * from employees where employeeNumber in (select distinct reportsTo f
 
 3.- Seleccione todos los empelados que NO son jefes
 R.  select * from employees where employeeNumber not in (select distinct reportsTo from employees where reportsTo is not NULL);
+4.- Seleccione todas las columnas de los clientes que se encuentren en USA
+R.- select * from customers where country='usa';
+
+5.- Seleccione el nombre y telefono de los clientes cuyo nombre empiece con "M"
+R.- select customerName, phone from customers where customerName LIKE 'M%';
+
+6.- seleccione todas las columnas de los clientes que se encuentren en alemania y su nombre contenga '&' ordenados por nombre descendente
+R.- select * from customers where country='Germany' and customerName LIKE '%&%' ORDER BY customerName DESC;
+
+7.- Seleccione todas las columnas de las ordenes realizadas el año 2004 ordenadas por fecha de envio
+R.- select * from orders where orderDate BETWEEN '2004-01-01' AND '2004-12-31' ORDER BY ShippedDate;
+
+8.- Seleccione todos los pagos realizados en 2003 cuyo monto sea mayor o igual a 1000 ordenados por monto descendentemente
+R.- select * from payments where (paymentDate >= '2003-01-01' and paymentDate <= '2003-12-31') and amount >= 1000 ORDER BY amount DESC;
+ 
+9.- Seleccione los 10 pagos mas altos del 2004
+R.- select * from payments where paymentDate BETWEEN '2004-01-01' and '2004-12-31' ORDER BY amount DESC LIMIT 10;
+
+10.-Seleccione los 10 pagos mas bajos del 2004 
+R.- select * from payments where paymentDate BETWEEN '2004-01-01' and '2004-12-31' ORDER BY amount ASC LIMIT 10;
