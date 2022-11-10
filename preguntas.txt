@@ -26,3 +26,9 @@ R.- select * from payments where paymentDate BETWEEN '2004-01-01' and '2004-12-3
 
 10.-Seleccione los 10 pagos mas bajos del 2004 
 R.- select * from payments where paymentDate BETWEEN '2004-01-01' and '2004-12-31' ORDER BY amount ASC LIMIT 10;
+
+11.- select todos los empleados de las oficinas de 'USA'
+R.- SELECT employees.*, offices.country FROM employees JOIN offices ON employees.officeCode = offices.officeCode WHERE offices.country = 'USA';
+
+12.- Seleccionar el monto total en ventas de los productos de la linea 'Motorcycles'
+R.- SELECT SUM(payments.amount) AS total_ventas FROM payments JOIN customers ON payments.customerNumber = customers.customerNumber JOIN orders ON customers.customerNumber = orders.customerNumber JOIN orderdetails ON orders.orderNumber = orderdetails.orderNumber JOIN products ON orderdetails.productCode = products.productCode JOIN productLines ON products.productLine = productLines.productLine WHERE productLines.productLine = 'Motorcycles';
